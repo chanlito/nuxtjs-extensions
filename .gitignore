@@ -1,0 +1,34 @@
+# dependencies
+node_modules
+
+# environment variables
+.env
+
+# IDE
+.idea
+.awcache
+
+# logs
+logs
+
+# misc
+.DS_Store
+npm-debug.log
+
+# tests
+coverage
+.nyc_output
+
+# built files
+dist
+server/nuxt
+server/build
+
+# public
+public/*
+public/uploads/*
+!public/uploads/.gitkeep
+
+# uploads
+client/static/uploads
+!client/static/uploads/.gitkeep

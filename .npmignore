@@ -1,0 +1,11 @@
+# dependencies
+node_modules
+
+# source files
+src
+
+# misc
+.prettierrc
+.editorconfig
+.gitignore
+tsconfig.json
