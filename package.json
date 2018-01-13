@@ -9,6 +9,10 @@
     "modules",
     "typescript"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BruceHem/nuxtjs-extensions"
+  },
   "author": "",
   "license": "MIT",
   "devDependencies": {
