@@ -2,7 +2,7 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 module.exports = function TypeScriptModule(moduleOptions) {
   const defaults = {
-    tsConfig: undefined
+    tsconfig: undefined
   };
 
   const options = { ...defaults, ...moduleOptions };
