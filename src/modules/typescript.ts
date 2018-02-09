@@ -38,8 +38,9 @@ module.exports = function TypeScriptModule(moduleOptions) {
     config.plugins.push(
       new ForkTsCheckerWebpackPlugin({
         tsconfig: options.tsconfig,
-        vue: true,
-        watch: ['client']
+        watch: ['client'],
+        workers: ForkTsCheckerWebpackPlugin.TWO_CPUS_FREE,
+        vue: true
       })
     );
   });
