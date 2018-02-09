@@ -21,7 +21,7 @@ module.exports = function TypeScriptModule(moduleOptions) {
     // Add TypeScript loader
     config.module.rules.push({
       test: /((client|server)\.js)|(\.tsx?)$/,
-      exclude: [/server/, /node_modules/],
+      exclude: [/build/, /server/, /node_modules/],
       ...tsLoader
     });
     // Add TypeScript loader for vue files
