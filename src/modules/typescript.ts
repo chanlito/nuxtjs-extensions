@@ -2,7 +2,8 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 module.exports = function TypeScriptModule(moduleOptions) {
   const defaults = {
-    tsconfig: undefined
+    tsconfig: undefined,
+    tslint: undefined
   };
 
   const options = { ...defaults, ...moduleOptions };
@@ -38,6 +39,7 @@ module.exports = function TypeScriptModule(moduleOptions) {
     config.plugins.push(
       new ForkTsCheckerWebpackPlugin({
         tsconfig: options.tsconfig,
+        tslint: options.tslint,
         watch: ['client'],
         workers: ForkTsCheckerWebpackPlugin.TWO_CPUS_FREE,
         vue: true

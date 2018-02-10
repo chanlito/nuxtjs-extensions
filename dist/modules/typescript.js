@@ -9,7 +9,8 @@ var __assign = (this && this.__assign) || Object.assign || function(t) {
 var ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 module.exports = function TypeScriptModule(moduleOptions) {
     var defaults = {
-        tsconfig: undefined
+        tsconfig: undefined,
+        tslint: undefined
     };
     var options = __assign({}, defaults, moduleOptions);
     // Add .ts extension for store, middleware and more
@@ -39,6 +40,7 @@ module.exports = function TypeScriptModule(moduleOptions) {
         // Add a webpack plugin
         config.plugins.push(new ForkTsCheckerWebpackPlugin({
             tsconfig: options.tsconfig,
+            tslint: options.tslint,
             watch: ['client'],
             workers: ForkTsCheckerWebpackPlugin.TWO_CPUS_FREE,
             vue: true
