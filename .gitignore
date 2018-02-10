@@ -20,7 +20,6 @@ coverage
 .nyc_output
 
 # built files
-dist
 server/nuxt
 server/build
 
