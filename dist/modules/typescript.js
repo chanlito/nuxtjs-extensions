@@ -25,7 +25,7 @@ module.exports = function TypeScriptModule(moduleOptions) {
             }
         };
         // Add TypeScript loader
-        config.module.rules.push(__assign({ test: /((client|server)\.js)|(\.tsx?)$/, exclude: [/build/, /server/, /node_modules/] }, tsLoader));
+        config.module.rules.push(__assign({ test: /\.tsx?$/, exclude: /node_modules/ }, tsLoader));
         // Add TypeScript loader for vue files
         for (var _i = 0, _a = config.module.rules; _i < _a.length; _i++) {
             var rule = _a[_i];
@@ -39,6 +39,7 @@ module.exports = function TypeScriptModule(moduleOptions) {
         }
         // Add a webpack plugin
         config.plugins.push(new ForkTsCheckerWebpackPlugin({
+            formatter: 'codeframe',
             tsconfig: options.tsconfig,
             tslint: options.tslint,
             watch: ['client'],
