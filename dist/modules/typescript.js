@@ -37,15 +37,17 @@ module.exports = function TypeScriptModule(moduleOptions) {
         if (config.resolve.extensions.indexOf('.ts') === -1) {
             config.resolve.extensions.push('.ts');
         }
-        // Add a webpack plugin
-        config.plugins.push(new ForkTsCheckerWebpackPlugin({
-            formatter: 'codeframe',
-            tsconfig: options.tsconfig,
-            tslint: options.tslint,
-            watch: ['client'],
-            workers: ForkTsCheckerWebpackPlugin.TWO_CPUS_FREE,
-            vue: true
-        }));
+        // Add a fork ts checker webpack plugin
+        if (config.name === 'client') {
+            config.plugins.push(new ForkTsCheckerWebpackPlugin({
+                formatter: 'codeframe',
+                tsconfig: options.tsconfig,
+                tslint: options.tslint,
+                watch: ['client'],
+                workers: ForkTsCheckerWebpackPlugin.TWO_CPUS_FREE,
+                vue: true
+            }));
+        }
     });
 };
 module.exports.meta = require('../../package.json');

@@ -7,6 +7,10 @@
   "scripts": {
     "prepare": "npx tsc"
   },
+  "engines": {
+    "node": ">=8.0.0",
+    "npm": ">=5.0.0"
+  },
   "keywords": [
     "nuxt",
     "modules",
@@ -22,19 +26,22 @@
     "fork-ts-checker-webpack-plugin": "^0.3.0",
     "nuxt-class-component": "^1.2.0",
     "ts-loader": "^3.5.0",
-    "vue": "^2.5.13",
     "vue-class-component": "^6.1.2",
     "vue-property-decorator": "^6.0.0",
-    "vuex": "^3.0.1",
     "vuex-class": "^0.3.0"
   },
   "devDependencies": {
     "@types/node": "^9.4.6",
     "tslint": "^5.9.1",
     "typescript": "^2.7.1",
-    "typesync": "^0.2.5"
+    "typesync": "^0.2.5",
+    "vee-validate": "^2.0.3",
+    "vue": "^2.5.13",
+    "vuetify": "^1.0.0",
+    "vuex": "^3.0.1"
   },
   "peerDependencies": {
+    "vee-validate": "^2.0.3",
     "vuetify": "^1.0.0"
   }
 }

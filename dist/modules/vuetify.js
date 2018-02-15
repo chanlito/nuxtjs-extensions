@@ -3,7 +3,7 @@ var defaults = {
     css: true,
     materialIcons: true
 };
-module.exports = function (moduleOptions) {
+module.exports = function VuetifyModule(moduleOptions) {
     var options = Object.assign({}, defaults, moduleOptions);
     // Add css
     if (options.css) {

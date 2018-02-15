@@ -19,33 +19,39 @@ module.exports = function TypeScriptModule(moduleOptions) {
         transpileOnly: true
       }
     };
+
     // Add TypeScript loader
     config.module.rules.push({
       test: /\.tsx?$/,
       exclude: /node_modules/,
       ...tsLoader
     });
+
     // Add TypeScript loader for vue files
     for (const rule of config.module.rules) {
       if (rule.loader === 'vue-loader') {
         rule.options.loaders.ts = tsLoader;
       }
     }
+
     // Add .ts extension in webpack resolve
     if (config.resolve.extensions.indexOf('.ts') === -1) {
       config.resolve.extensions.push('.ts');
     }
-    // Add a webpack plugin
-    config.plugins.push(
-      new ForkTsCheckerWebpackPlugin({
-        formatter: 'codeframe',
-        tsconfig: options.tsconfig,
-        tslint: options.tslint,
-        watch: ['client'],
-        workers: ForkTsCheckerWebpackPlugin.TWO_CPUS_FREE,
-        vue: true
-      })
-    );
+
+    // Add a fork ts checker webpack plugin
+    if (config.name === 'client') {
+      config.plugins.push(
+        new ForkTsCheckerWebpackPlugin({
+          formatter: 'codeframe',
+          tsconfig: options.tsconfig,
+          tslint: options.tslint,
+          watch: ['client'],
+          workers: ForkTsCheckerWebpackPlugin.TWO_CPUS_FREE,
+          vue: true
+        })
+      );
+    }
   });
 };
 

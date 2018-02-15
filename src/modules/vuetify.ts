@@ -5,7 +5,7 @@ const defaults = {
   materialIcons: true
 };
 
-module.exports = function(moduleOptions) {
+module.exports = function VuetifyModule(moduleOptions) {
   const options = Object.assign({}, defaults, moduleOptions);
 
   // Add css
