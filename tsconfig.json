@@ -1,12 +1,9 @@
 {
   "compilerOptions": {
     "declaration": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
     "noUnusedLocals": true,
     "noImplicitAny": false,
     "noImplicitThis": false,
-    "suppressImplicitAnyIndexErrors": true,
     "allowSyntheticDefaultImports": true,
     "outDir": "dist",
     "sourceMap": true,
@@ -14,9 +11,7 @@
     "lib": [
       "dom",
       "es2015"
-    ],
-    "module": "commonjs",
-    "moduleResolution": "node"
+    ]
   },
   "include": [
     "src",
