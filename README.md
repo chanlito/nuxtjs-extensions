@@ -1,5 +1,7 @@
 # NuxtJS Extensions
 
+A bunch of additional Nuxt modules. 💚
+
 ## Setup
 
 ```bash
