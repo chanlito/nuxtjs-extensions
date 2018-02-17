@@ -16,14 +16,14 @@ npm install nuxtjs-extensions
     [
       'nuxtjs-extensions/typescript',
       {
-        tsconfig: false,
-        tslint: false
+        tsconfig: path.resolve(/* tsconfig.json */),
+        tslint: path.resolve(/* tslint.json */)
       }
     ],
     [
       'nuxtjs-extensions/vuetify',
       {
-        css: false,
+        css: false, // disable this and use CDN
         theme: {
           primary: '#3f51b5',
           secondary: '#757de8',
@@ -35,7 +35,7 @@ npm install nuxtjs-extensions
         }
       }
     ],
-    ['nuxtjs-extensions/vee-validate']
+    ['nuxtjs-extensions/vee-validate', { // specify vee-validate options }]
   ]
 }
 ```
