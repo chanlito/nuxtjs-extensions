@@ -25,6 +25,7 @@
   "dependencies": {
     "fork-ts-checker-webpack-plugin": "^0.3.0",
     "nuxt-class-component": "^1.2.0",
+    "titleize": "^1.0.0",
     "ts-loader": "^3.5.0",
     "vue-class-component": "^6.2.0",
     "vue-property-decorator": "^6.0.0",
