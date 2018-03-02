@@ -1,15 +1,16 @@
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 module.exports = function TypeScriptModule(moduleOptions) {
-  const defaults = {
+  const options = {
     tsconfig: undefined,
-    tslint: undefined
+    tslint: undefined,
+    workers: ForkTsCheckerWebpackPlugin.ONE_CPU,
+    ...moduleOptions
   };
-
-  const options = { ...defaults, ...moduleOptions };
 
   // Add .ts extension for store, middleware and more
   this.nuxt.options.extensions.push('ts');
+
   // Extend build
   this.extendBuild(config => {
     const tsLoader = {
@@ -47,7 +48,7 @@ module.exports = function TypeScriptModule(moduleOptions) {
           tsconfig: options.tsconfig,
           tslint: options.tslint,
           watch: ['client'],
-          workers: ForkTsCheckerWebpackPlugin.TWO_CPUS_FREE,
+          workers: options.workers,
           vue: true
         })
       );
