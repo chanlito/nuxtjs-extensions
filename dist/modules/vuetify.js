@@ -1,33 +1,28 @@
-var path = require('path');
-var defaults = {
-    css: true,
-    materialIcons: true
-};
-module.exports = function VuetifyModule(moduleOptions) {
-    var options = Object.assign({}, defaults, moduleOptions);
-    // Add css
-    if (options.css) {
-        this.options.css.unshift('vuetify/dist/vuetify.css');
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
     }
-    // Add Material Icons font
+    return t;
+};
+var resolve = require('path').resolve;
+module.exports = function VuetifyModule(moduleOptions) {
+    var options = __assign({ css: true, materialIcons: true }, moduleOptions);
+    if (options.css) {
+        this.options.css.unshift('vuetify/dist/vuetify.min.css');
+    }
     if (options.materialIcons) {
         this.options.head.link.push({
             rel: 'stylesheet',
-            type: 'text/css',
-            href: '//fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'
+            href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'
         });
     }
-    // Remove module options
-    var vuetifyOptions = Object.assign({}, options);
-    delete vuetifyOptions.css;
-    delete vuetifyOptions.materialIcons;
     // Register plugin
     this.addPlugin({
-        src: path.resolve(__dirname, '../plugins/vuetify.js'),
+        src: resolve(__dirname, '../plugins/vuetify.js'),
         fileName: 'vuetify.js',
-        options: {
-            vuetifyOptions: vuetifyOptions
-        }
+        options: { options: options }
     });
 };
 module.exports.meta = require('../../package.json');
