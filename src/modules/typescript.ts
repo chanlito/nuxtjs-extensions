@@ -31,6 +31,8 @@ module.exports = function TypeScriptModule(moduleOptions) {
     // Add TypeScript loader for vue files
     for (const rule of config.module.rules) {
       if (rule.loader === 'vue-loader') {
+        rule.options.loaders = rule.options.loaders || {}
+        rule.options.loaders.ts = rule.options.loaders.ts || []
         rule.options.loaders.ts = tsLoader;
       }
     }
