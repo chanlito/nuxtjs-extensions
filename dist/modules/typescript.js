@@ -26,6 +26,8 @@ module.exports = function TypeScriptModule(moduleOptions) {
         for (var _i = 0, _a = config.module.rules; _i < _a.length; _i++) {
             var rule = _a[_i];
             if (rule.loader === 'vue-loader') {
+                rule.options.loaders = rule.options.loaders || {};
+                rule.options.loaders.ts = rule.options.loaders.ts || [];
                 rule.options.loaders.ts = tsLoader;
             }
         }
