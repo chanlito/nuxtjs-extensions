@@ -23,8 +23,10 @@
   "author": "Chanlito <chanlitohem@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "cache-loader": "^1.2.2",
     "fork-ts-checker-webpack-plugin": "^0.4.1",
     "nuxt-class-component": "^1.2.1",
+    "thread-loader": "^1.1.5",
     "titleize": "^1.0.1",
     "ts-loader": "^4.2.0",
     "vue-class-component": "^6.2.0",
